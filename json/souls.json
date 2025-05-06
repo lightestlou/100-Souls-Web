@@ -7,75 +7,153 @@
         "reaction": 0,
         "mana": 0
       },
-      "category": "Normal Moves",
-      "content1": "<p>A basic physical strike aimed at one nearby enemy.</p>",
-      "content2": "<ul><li>Deals 1d6 physical damage</li><li>No added effects</li></ul>",
-      "content3": "<p>Reliable and cost-free. Best used when conserving resources.</p>"
+      "category": "Basic Actions",
+      "content1": "<p>Unleash a well-measured melee attack to inflict damage to a single target.</p>",
+      "content2": "<p>Formula: (Attack Damage + Weapon Modifier) * 100</p><p>Damage: {{(character.attackDamage + character.weaponModifier) * 100}}</p>",
+      "content3": "<p>Feel free to flavor this attack to something appropriate to your character; whether that's a kick, a swing of your sword, or something else.</p>"
     },
     {
-      "id": "healing_light",
-      "name": "Healing Light",
+      "id": "heavy_attack",
+      "name": "Heavy Attack",
       "cost": {
-        "action": 1,
-        "reaction": 1,
-        "mana": 3
+        "action": 2,
+        "reaction": 0,
+        "mana": 0
       },
-      "category": "Support Magic",
-      "content1": "<p>Summon radiant light to mend a target's wounds.</p>",
-      "content2": "<ul><li>Heals 2d4 HP</li><li>Range: 10m</li><li>Can be self-cast</li></ul>",
-      "content3": "<p>Try to keep at least 3 mana on hand if you’re the only healer.</p>"
+      "category": "Basic Actions",
+      "content1": "<p>Unleash a powerful melee attack to deal significant damage to a single target.</p>",
+      "content2": "<p>Formula: (Attack Damage + Weapon Modifier) * 250</p><p>Damage: {{(character.attackDamage + character.weaponModifier) * 250}}</p>",
+      "content3": "<p>Feel free to flavor this attack to something appropriate to your character; whether that's a kick, a swing of your sword, or something else.</p>"
     },
     {
-      "id": "fire_burst",
-      "name": "Fire Burst",
+      "id": "move",
+      "name": "Move",
       "cost": {
         "action": 1,
         "reaction": 0,
-        "mana": 4
+        "mana": 0
       },
-      "category": "Elemental Magic",
-      "content1": "<p>Unleashes a blast of flame in a short cone ahead of you.</p>",
-      "content2": "<ul><li>Deals 2d6 fire damage</li><li>Hits up to 3 enemies in front arc</li></ul>",
-      "content3": "<p>Best used when enemies are clustered. Be careful of friendly fire!</p>"
+      "category": "Basic Actions",
+      "content1": "<p>Move across the battlefield.</p>",
+      "content2": "<p>Formula: Speed * 5</p><p>Distance: {{character.maxSpeed * 5}}</p>",
+      "content3": "<p>Movement Tip Here...</p>"
     },
     {
-      "id": "shadow_chain",
-      "name": "Shadow Chain",
+      "id": "drop_prone",
+      "name": "Drop Prone",
       "cost": {
         "action": 1,
-        "reaction": 1,
-        "mana": 2
+        "reaction": 0,
+        "mana": 0
       },
-      "category": "Control Arts",
-      "content1": "<p>Summon binding shadows that attempt to immobilize your target.</p>",
-      "content2": "<ul><li>Target must make a Strength save (DC 12)</li><li>On fail: Cannot move for 1 round</li></ul>",
-      "content3": "<p>Great for interrupting runners or stalling stronger foes.</p>"
+      "category": "Basic Actions",
+      "content1": "<p>Drop to the ground, becoming prone.</p>",
+      "content2": "<p>You fall prone.</p>",
+      "content3": "<p>Use the crawl action to move while prone.</p>"
+    },
+    { 
+      "id": "crawl",
+      "name": "Crawl",
+      "cost": {
+        "action": 1,
+        "reaction": 0,
+        "mana": 0
+      },
+      "category": "Basic Actions",
+      "content1": "<p>Move while prone.</p>",
+      "content2": "<p>Formula: Speed/2 * 5</p><p>Distance: {{character.maxSpeed/2 * 5}}</p>",
+      "content3": "<p>Movement Tip Here...</p>" 
     },
     {
-      "id": "barrier_aegis",
-      "name": "Barrier Aegis",
+      "id": "stand_up",
+      "name": "Stand Up",
       "cost": {
         "action": 1,
-        "reaction": 2,
-        "mana": 5
+        "reaction": 0,
+        "mana": 0
       },
-      "category": "Defensive Magic",
-      "content1": "<p>Create a glowing barrier around yourself or an ally.</p>",
-      "content2": "<ul><li>Absorbs up to 10 damage</li><li>Lasts 2 rounds or until broken</li></ul>",
-      "content3": "<p>Time this before a big hit for maximum value.</p>"
+      "category": "Basic Actions",
+      "content1": "<p>Stand up from a prone position.</p>",
+      "content2": "<p>You stand up.</p>", 
+      "content3": "<p>Tips Here...</p>"
+    },
+    { 
+      "id": "interact",
+      "name": "Interact",
+      "cost": {
+        "action": 1,
+        "reaction": 0,
+        "mana": 0
+      },
+      "category": "Basic Actions",
+      "content1": "<p>Manipulate an object or the terrain.</p>",
+      "content2": "<p>You manipulate the object or terrain.</p>",
+      "content3": "<p>This covers anything from pushing a box to a button, to pulling a lever or a door.</p>"
     },
     {
-      "id": "mighty_strike",
-      "name": "Mighty Strike",
+      "id": "block",
+      "name": "Block",
       "cost": {
-        "action": 1,
+        "action": 0,
         "reaction": 1,
         "mana": 0
       },
-      "category": "Physical Arts",
-      "content1": "<p>Channel your physical prowess into a devastating blow.</p>",
-      "content2": "<ul><li>Base damage: 5</li><li>Adds {{skills[0]}} × 2 damage (Physique)</li><li>Total damage: {{5 + (skills[0] * 2)}}</li></ul>",
-      "content3": "<p>Your current Physique skill ({{skills[0]}}) makes this ability particularly effective.</p>"
+      "category": "Basic Reactions",
+      "content1": "<p>Brace against incoming damage, diminishing the force of the assault.</p>",
+      "content2": "<p>Trigger:<br>You are about to take damage from an attack and you are aware of it.</p><p>Effect:<br>Reduce the power of the attack used against you by 50</p>",
+      "content3": "<p>Block Tip Here...</p>"
+    },
+    {
+      "id": "dodge",
+      "name": "Dodge",
+      "cost": {
+        "action": 0,
+        "reaction": 1,
+        "mana": 0
+      },
+      "category": "Basic Reactions",
+      "content1": "<p>Attempt to avoid an incoming attack with quick reflexes.</p>",
+      "content2": "<p>Trigger:<br>You are about to take damage from an attack and you are aware of it.</p><p>Contest:<br>Coordination vs Accuracy</p><p>Success:<br>Negate the attack</p>",
+      "content3": "<p>The default Accuracy for any given attack is 0 unless otherwise stated.</p>"
+    },
+    {
+      "id": "grab_break",
+      "name": "Grab Break",
+      "cost": {
+        "action": 0,
+        "reaction": 1,
+        "mana": 0
+      },
+      "category": "Basic Reactions",
+      "content1": "<p>Attempt to prevent an opponent from grappling you.</p>",
+      "content2": "<p>Trigger:<br>You are about to take damage from an attack and you are aware of it.</p><p>Prediction:<br>You anticipate a grab-style attack.</p><p>Success:<br>Target's attack fails and your reaction is refunded.</p>",
+      "content3": "<p>Keep an eye on what moves your oppent favors and use this reaction to counter them.</p>"
+    },
+    {
+      "id": "surprise_attack",
+      "name": "Surprise Attack",
+      "cost": {
+        "action": 0,
+        "reaction": 0,
+        "mana": 0
+      },
+      "category": "Basic Modifiers",
+      "content1": "<p>You deal more damage when you catch an opponent off guard.</p>",
+      "content2": "<p>Requirement:<br>The Target of the modified ability is unaware of the user’s presence.</p><p>Success:<br>Increase the Power of the modified ability by 100.</p><p>Failure:<br>The modified ability deals normal damage.</p>",
+      "content3": "<p>Be sure to use this modifier when you catch your opponent off guard.</p>"
+    },
+    {
+      "id": "non_lethal",
+      "name": "Non-Lethal",
+      "cost": {
+        "action": 0,
+        "reaction": 0,
+        "mana": 0
+      },
+      "category": "Basic Modifiers",
+      "content1": "<p>Modify an ability to reduce the chance of severly injuring an opponent.</p>",
+      "content2": "<p>Effect:<br>Decrease the Power of the modified ability by 50.</p><p>Effect:<br>Damage from the modified ability will never cause hard damage. </p>",
+      "content3": "<p>Use this modifier when you want to deal damage, but not cause hard damage.</p>"
     }
   ]
   
