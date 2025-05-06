@@ -3,7 +3,7 @@ import { loadAbilities, getAbilitiesByCategory, searchAbilities, addAbilityToCha
 import { saveCharacters } from './character-manager.js';
 import { replaceAbilityVariables } from './variable-replacer.js';
 
-let currentView = 'all'; // 'all' or 'character'
+let currentView = 'character'; // Changed from 'all' to 'character'
 let currentSearch = '';
 let currentCharacter = null;
 
@@ -39,6 +39,10 @@ function setupEventListeners() {
     toggleAllBtn.classList.remove('active');
     renderAbilities();
   });
+
+  // Set initial button states
+  toggleCharacterBtn.classList.add('active');
+  toggleAllBtn.classList.remove('active');
 }
 
 // Render all abilities
@@ -77,11 +81,12 @@ function createCategoryElement(category, abilities) {
   header.className = 'ability-category-header';
   header.innerHTML = `
     <span class="ability-category-title">${category}</span>
-    <span class="ability-category-toggle">▼</span>
+    <span class="ability-category-toggle collapsed">▼</span>
   `;
   
   const cardsContainer = document.createElement('div');
   cardsContainer.className = 'ability-cards';
+  cardsContainer.style.display = 'none'; // Start collapsed
   
   abilities.forEach(ability => {
     const card = createAbilityCard(ability);
