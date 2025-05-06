@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>100 Souls Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/typography.css">
+  <link rel="stylesheet" href="styles/footer.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/character.css">
+  <link rel="stylesheet" href="styles/abilities.css">
+  <link rel="stylesheet" href="styles/utilities.css">
+  <link rel="stylesheet" href="styles/media.css">
+  <link rel="stylesheet" href="styles/diceroller.css">
+</head>
+<body>
+  <header>
+    <h1>100 Souls - Character Manager</h1>
+    <p>Track your character's journey through the world of 100 Souls</p>
+  </header>
+
+  <main>
+    <!-- Character Manager -->
+    <section id="character-manager">
+      <h2>Characters</h2>
+      <ul id="character-list"></ul>
+      <button id="add-character-btn">+ New Character</button>
+      
+      <!-- Character Card Template -->
+      <template id="character-card-template">
+        <div class="character-card">
+          <div class="character-card-name"></div>
+          <div class="character-card-epithet"></div>
+          <div class="character-card-btn-group">
+            <button class="character-card-select">Select</button>
+            <button class="character-card-delete">Delete</button>
+          </div>
+        </div>
+      </template>
+    </section>
+
+    <!-- Character View -->
+    <section id="character-view" class="hidden">
+      <nav id="tabs">
+        <button data-tab="info">Info</button>
+        <button data-tab="skills">Skills</button>
+        <button data-tab="combat">Combat</button>
+        <button data-tab="abilities">Abilities</button>
+        <button data-tab="feats">Feats</button>
+        <button data-tab="inventory">Inventory</button>
+        <button data-tab="notes">Notes</button>
+      </nav>
+      <div id="tab-content">
+        <div id="info" class="tab-section">
+          <div class="card">
+            <div class="card-title">🧾 Character Info</div>
+            <div class="info-fields">
+              <label>
+                Name
+                <input type="text" id="char-name-input" />
+              </label>
+              <label>
+                Epithet
+                <input type="text" id="char-epithet-input" />
+              </label>
+              <label>
+                Background
+                <textarea id="char-background-input"></textarea>
+              </label>
+              <label>
+                Traits
+                <textarea id="char-traits-input"></textarea>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div id="skills" class="tab-section">
+          <div class="card-stack">
+            <!-- Core Skills -->
+            <div class="card">
+              <div class="card-title">💪 Core Skills</div>
+              <div class="skill-chips-row">
+                <div class="skill-chip" data-skill-idx="0">
+                  <span class="skill-chip-icon">🏋️</span>
+                  <span class="skill-chip-name">Physique</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="1">
+                  <span class="skill-chip-icon">🤸</span>
+                  <span class="skill-chip-name">Coordination</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="2">
+                  <span class="skill-chip-icon">🧠</span>
+                  <span class="skill-chip-name">Mental Resilience</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="3">
+                  <span class="skill-chip-icon">🕊️</span>
+                  <span class="skill-chip-name">Spiritual Aptitude</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Sensory Skills -->
+            <div class="card">
+              <div class="card-title">👁️ Sensory Skills</div>
+              <div class="skill-chips-row">
+                <div class="skill-chip" data-skill-idx="4">
+                  <span class="skill-chip-icon">👁️</span>
+                  <span class="skill-chip-name">Spot</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="5">
+                  <span class="skill-chip-icon">👂</span>
+                  <span class="skill-chip-name">Listen</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="6">
+                  <span class="skill-chip-icon">👃</span>
+                  <span class="skill-chip-name">Smell</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="7">
+                  <span class="skill-chip-icon">👅</span>
+                  <span class="skill-chip-name">Taste</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="8">
+                  <span class="skill-chip-icon">✋</span>
+                  <span class="skill-chip-name">Touch</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Interpersonal Skills -->
+            <div class="card">
+              <div class="card-title">🧑‍🤝‍🧑 Interpersonal Skills</div>
+              <div class="skill-chips-row">
+                <div class="skill-chip" data-skill-idx="9">
+                  <span class="skill-chip-icon">🎩</span>
+                  <span class="skill-chip-name">Etiquette</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="10">
+                  <span class="skill-chip-icon">🕵️</span>
+                  <span class="skill-chip-name">Streetwise</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="11">
+                  <span class="skill-chip-icon">🎭</span>
+                  <span class="skill-chip-name">Perform</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="12">
+                  <span class="skill-chip-icon">💗</span>
+                  <span class="skill-chip-name">Empathy</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="13">
+                  <span class="skill-chip-icon">😠</span>
+                  <span class="skill-chip-name">Intimidate</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="14">
+                  <span class="skill-chip-icon">🦊</span>
+                  <span class="skill-chip-name">Deceive</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="15">
+                  <span class="skill-chip-icon">🗣️</span>
+                  <span class="skill-chip-name">Persuade</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Knowledge Skills -->
+            <div class="card">
+              <div class="card-title">📚 Knowledge Skills</div>
+              <div class="skill-chips-row">
+                <div class="skill-chip" data-skill-idx="16">
+                  <span class="skill-chip-icon">🔮</span>
+                  <span class="skill-chip-name">Arcana</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="17">
+                  <span class="skill-chip-icon">🌌</span>
+                  <span class="skill-chip-name">Astronomy</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="18">
+                  <span class="skill-chip-icon">🐾</span>
+                  <span class="skill-chip-name">Beast</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="19">
+                  <span class="skill-chip-icon">🗺️</span>
+                  <span class="skill-chip-name">Geography</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="20">
+                  <span class="skill-chip-icon">🏺</span>
+                  <span class="skill-chip-name">History</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="21">
+                  <span class="skill-chip-icon">🌳</span>
+                  <span class="skill-chip-name">Nature</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+                <div class="skill-chip" data-skill-idx="22">
+                  <span class="skill-chip-icon">⛪</span>
+                  <span class="skill-chip-name">Religion</span>
+                  <div class="skill-chip-controls">
+                    <button class="skill-chip-btn skill-chip-minus" tabindex="-1">↓</button>
+                    <span class="skill-chip-value">0</span>
+                    <button class="skill-chip-btn skill-chip-plus" tabindex="-1">↑</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="combat" class="tab-section">
+          <div class="card-stack">
+            <!-- Dice Roller -->
+            <div class="card">
+              <div class="card-title">🎲 Dice Roller</div>
+              <div class="dice-roller">
+                <button id="roll-dice" class="dice-roller-button">Roll Dice</button>
+                <div id="dice-rolls" class="dice-rolls">
+                  <span class="dice-roll">0</span>
+                  <span class="dice-roll-separator">-</span>
+                  <span class="dice-roll">0</span>
+                  <span class="dice-roll-separator">=</span>
+                  <span class="dice-result">0</span>
+                </div>
+              </div>
+            </div>
+            <!-- Damage Calculation -->
+            <div class="card">
+              <div class="card-title">🎯 Damage Calculator</div>
+              <div class="damage-calc-container">
+                <!-- Attack Damage -->
+                <div class="damage-calc-section">
+                  <div class="damage-calc-title">🗡️ Attack Damage</div>
+                  <label class="damage-calc-label">Attack Damage
+                    <input type="number" id="attack-damage-input" min="0" />
+                  </label>
+                  <label class="damage-calc-label">Weapon Modifier
+                    <input type="number" id="weapon-modifier-input" min="0" />
+                  </label>
+                  <label class="damage-calc-label">Power
+                    <input type="number" id="attack-power-input" min="0" />
+                  </label>
+                  <label class="damage-calc-label">Final Attack Damage
+                    <input type="number" id="final-attack-damage" readonly class="damage-calc-input" />
+                  </label>
+                </div>
+                <!-- Ability Damage -->
+                <div class="damage-calc-section">
+                  <div class="damage-calc-title">✨ Ability Damage</div>
+                  <label class="damage-calc-label">Ability Damage
+                    <input type="number" id="ability-damage-input" min="0" />
+                  </label>
+                  <label class="damage-calc-label">Conduit Modifier
+                    <input type="number" id="conduit-modifier-input" min="0" />
+                  </label>
+                  <label class="damage-calc-label">Power
+                    <input type="number" id="ability-power-input" min="0" />
+                  </label>
+                  <label class="damage-calc-label">Final Ability Damage
+                    <input type="number" id="final-ability-damage" readonly class="damage-calc-input" />
+                  </label>
+                </div>
+              </div>
+            </div>
+            <!-- End Damage Calculation -->
+            
+            <!-- Combat Stats -->
+            <div class="card">
+              <div class="card-title">⚔️ Combat Tracker</div>
+              <div class="stat-trackers">
+                <!-- Actions -->
+                <div class="tracker">
+                  <div class="tracker-label">Actions</div>
+                  <div id="actions-progressbar" class="progressbar-container"></div>
+                  <div class="tracker-controls">
+                    <button class="tracker-button" data-resource="actions" data-direction="decrease">↓</button>
+                    <button class="tracker-button" data-resource="actions" data-direction="increase">↑</button>
+                  </div>
+                  <div class="tracker-inputs">
+                    <label>Max Actions</label>
+                    <input type="number" class="tracker-input" value="3" min="0" />
+                  </div>
+                </div>
+                <!-- Reactions -->
+                <div class="tracker">
+                  <div class="tracker-label">Reactions</div>
+                  <div id="reactions-progressbar" class="progressbar-container"></div>
+                  <div class="tracker-controls">
+                    <button class="tracker-button" data-resource="reactions" data-direction="decrease">↓</button>
+                    <button class="tracker-button" data-resource="reactions" data-direction="increase">↑</button>
+                  </div>
+                  <div class="tracker-inputs">
+                    <label>Max Reactions</label>
+                    <input type="number" class="tracker-input" value="3" min="0" />
+                  </div>
+                </div>
+                <!-- Mana -->
+                <div class="tracker">
+                  <div class="tracker-label">Mana</div>
+                  <div id="mana-progressbar" class="progressbar-container"></div>
+                  <div class="tracker-controls">
+                    <button class="tracker-button" data-resource="mana" data-direction="decrease">↓</button>
+                    <button class="tracker-button" data-resource="mana" data-direction="increase">↑</button>
+                  </div>
+                  <div class="tracker-inputs">
+                    <label>Max Mana</label>
+                    <input type="number" class="tracker-input" value="1" min="0" />
+                  </div>
+                </div>
+                <!-- Speed -->
+                <div class="tracker">
+                  <div class="tracker-label">Speed</div>
+                  <div id="speed-progressbar" class="progressbar-container"></div>
+                  <div class="tracker-controls">
+                    <button class="tracker-button" data-resource="speed" data-direction="decrease">↓</button>
+                    <button class="tracker-button" data-resource="speed" data-direction="increase">↑</button>
+                  </div>
+                  <div class="tracker-inputs">
+                    <label>Max Speed</label>
+                    <input type="number" class="tracker-input" value="3" min="0" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Vitality -->
+            <div class="card">
+              <div class="card-title">🩸 Damage Tracker</div>
+              <div class="stat-trackers">
+                <!-- Soft Damage -->
+                <div class="tracker">
+                  <div class="tracker-label">Soft Damage</div>
+                  <div id="soft-damage-progressbar" class="progressbar-container"></div>
+                  <div class="tracker-controls">
+                    <button class="tracker-button" data-damage="soft" data-direction="decrease">↓</button>
+                    <button class="tracker-button" data-damage="soft" data-direction="increase">↑</button>
+                  </div>
+                  <div class="tracker-inputs">
+                    <label>Soft Health</label>
+                    <input type="number" class="tracker-input" id="soft-health-input" value="12" min="1" />
+                  </div>
+                </div>
+                <!-- Hard Damage -->
+                <div class="tracker">
+                  <div class="tracker-label">Hard Damage</div>
+                  <div id="hard-damage-progressbar" class="progressbar-container"></div>
+                  <div class="tracker-controls">
+                    <button class="tracker-button" data-damage="hard" data-direction="decrease">↓</button>
+                    <button class="tracker-button" data-damage="hard" data-direction="increase">↑</button>
+                  </div>
+                  <div class="tracker-inputs">
+                    <label>Hard Health</label>
+                    <input type="number" class="tracker-input" id="hard-health-input" value="3" min="1" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Conditions -->
+            <div class="card">
+              <div class="card-title">🤕 Conditions</div>
+              <textarea id="conditions-input"></textarea>
+            </div>
+          </div>
+        </div>
+        <div id="abilities" class="tab-section">
+          <div class="card">
+            <div class="card-title">✨ Abilities</div>
+            <div class="abilities-controls">
+              <div class="search-container">
+                <input type="text" id="ability-search" placeholder="Search abilities..." />
+              </div>
+              <div class="view-toggle">
+                <button id="toggle-all-abilities" class="active">All Abilities</button>
+                <button id="toggle-character-abilities">Character Abilities</button>
+              </div>
+            </div>
+            <div id="abilities-container">
+              <!-- Ability cards will be dynamically inserted here -->
+            </div>
+          </div>
+        </div>
+        <div id="feats" class="tab-section">
+          <div class="card">
+            <div class="card-title">🏆 Feats</div>
+            <div class="coming-soon-container">
+              <p class="coming-soon-text">Character Feats Coming Soon!</p>
+              <p>This feature will allow you to track your character's special feats and achievements.</p>
+            </div>
+          </div>
+        </div>
+        <div id="inventory" class="tab-section">
+          <div class="card">
+            <div class="card-title">🎒 Inventory</div>
+            <textarea id="inventory-input" placeholder="Sword of the Moon, 3 healing potions, lockpicks, 50 gold coins..."></textarea>
+          </div>
+        </div>
+        <div id="notes" class="tab-section">
+          <div class="card">
+            <div class="card-title">📝 Notes</div>
+            <textarea id="notes-input" placeholder="Use this to write notes about your character, campaign, or whatever you want."></textarea>
+          </div>
+        </div>
+      </div>
+      <button id="back-to-manager">Back to Home</button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>100 Souls is © 2025 Michael Hayeck / Late Night LAN Party LLC. All Rights Reserved.</p>
+      <p>Non-commercial fan creations are welcome and allowed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)</a>.</p>
+      <p>Commercial use of any part of 100 Souls requires prior written permission.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/progressbar.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

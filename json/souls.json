@@ -1,0 +1,81 @@
+[
+    {
+      "id": "normal_attack",
+      "name": "Normal Attack",
+      "cost": {
+        "action": 1,
+        "reaction": 0,
+        "mana": 0
+      },
+      "category": "Normal Moves",
+      "content1": "<p>A basic physical strike aimed at one nearby enemy.</p>",
+      "content2": "<ul><li>Deals 1d6 physical damage</li><li>No added effects</li></ul>",
+      "content3": "<p>Reliable and cost-free. Best used when conserving resources.</p>"
+    },
+    {
+      "id": "healing_light",
+      "name": "Healing Light",
+      "cost": {
+        "action": 1,
+        "reaction": 1,
+        "mana": 3
+      },
+      "category": "Support Magic",
+      "content1": "<p>Summon radiant light to mend a target's wounds.</p>",
+      "content2": "<ul><li>Heals 2d4 HP</li><li>Range: 10m</li><li>Can be self-cast</li></ul>",
+      "content3": "<p>Try to keep at least 3 mana on hand if you’re the only healer.</p>"
+    },
+    {
+      "id": "fire_burst",
+      "name": "Fire Burst",
+      "cost": {
+        "action": 1,
+        "reaction": 0,
+        "mana": 4
+      },
+      "category": "Elemental Magic",
+      "content1": "<p>Unleashes a blast of flame in a short cone ahead of you.</p>",
+      "content2": "<ul><li>Deals 2d6 fire damage</li><li>Hits up to 3 enemies in front arc</li></ul>",
+      "content3": "<p>Best used when enemies are clustered. Be careful of friendly fire!</p>"
+    },
+    {
+      "id": "shadow_chain",
+      "name": "Shadow Chain",
+      "cost": {
+        "action": 1,
+        "reaction": 1,
+        "mana": 2
+      },
+      "category": "Control Arts",
+      "content1": "<p>Summon binding shadows that attempt to immobilize your target.</p>",
+      "content2": "<ul><li>Target must make a Strength save (DC 12)</li><li>On fail: Cannot move for 1 round</li></ul>",
+      "content3": "<p>Great for interrupting runners or stalling stronger foes.</p>"
+    },
+    {
+      "id": "barrier_aegis",
+      "name": "Barrier Aegis",
+      "cost": {
+        "action": 1,
+        "reaction": 2,
+        "mana": 5
+      },
+      "category": "Defensive Magic",
+      "content1": "<p>Create a glowing barrier around yourself or an ally.</p>",
+      "content2": "<ul><li>Absorbs up to 10 damage</li><li>Lasts 2 rounds or until broken</li></ul>",
+      "content3": "<p>Time this before a big hit for maximum value.</p>"
+    },
+    {
+      "id": "mighty_strike",
+      "name": "Mighty Strike",
+      "cost": {
+        "action": 1,
+        "reaction": 1,
+        "mana": 0
+      },
+      "category": "Physical Arts",
+      "content1": "<p>Channel your physical prowess into a devastating blow.</p>",
+      "content2": "<ul><li>Base damage: 5</li><li>Adds {{skills[0]}} × 2 damage (Physique)</li><li>Total damage: {{5 + (skills[0] * 2)}}</li></ul>",
+      "content3": "<p>Your current Physique skill ({{skills[0]}}) makes this ability particularly effective.</p>"
+    }
+  ]
+  

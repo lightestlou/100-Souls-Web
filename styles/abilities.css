@@ -1,0 +1,204 @@
+/* Abilities Section */
+.abilities-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.search-container {
+  width: 100%;
+}
+
+.search-container input {
+  width: 100%;
+  padding: var(--space-md);
+  border: var(--input-border);
+  border-radius: var(--radius-md);
+  background: var(--input-bg);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.view-toggle {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.view-toggle button {
+  flex: 1;
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.9rem;
+}
+
+.view-toggle button.active {
+  background: var(--primary-color);
+  color: var(--bg-secondary);
+}
+
+/* Ability Categories */
+.ability-category {
+  margin-bottom: var(--space-lg);
+}
+
+.ability-category-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md);
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  margin-bottom: var(--space-sm);
+}
+
+.ability-category-header:hover {
+  background: var(--bg-tertiary);
+}
+
+.ability-category-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.ability-category-toggle {
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.ability-category-toggle.collapsed {
+  transform: rotate(-90deg);
+}
+
+/* Ability Cards */
+.ability-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-md);
+  padding: var(--space-sm);
+}
+
+.ability-card {
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-color);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.ability-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-hover);
+}
+
+.ability-card-header {
+  padding: var(--space-md);
+  background: var(--bg-secondary);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.ability-card-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.ability-card-costs {
+  display: flex;
+  gap: var(--space-md);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.ability-card-cost {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.ability-card-content {
+  padding: var(--space-md);
+}
+
+.ability-card-content-block {
+  display: none;
+}
+
+.ability-card-content-block.active {
+  display: block;
+}
+
+.ability-card-footer {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--bg-secondary);
+  border-top: 2px solid var(--border-color);
+}
+
+.ability-card-footer button {
+  flex: 1;
+  padding: var(--space-sm);
+  font-size: 0.9rem;
+}
+
+.ability-card-footer button.active {
+  background: var(--primary-color);
+  color: var(--bg-secondary);
+}
+
+.ability-card-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.ability-card-actions button {
+  flex: 1;
+  padding: var(--space-sm);
+  font-size: 0.9rem;
+}
+
+.ability-card-actions .add-ability {
+  background: var(--success-color);
+  color: var(--bg-secondary);
+  border-color: var(--success-color);
+}
+
+.ability-card-actions .remove-ability {
+  background: var(--error-color);
+  color: var(--bg-secondary);
+  border-color: var(--error-color);
+}
+
+/* Context Menu */
+.ability-context-menu {
+  position: fixed;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-hover);
+  z-index: 1000;
+  min-width: 150px;
+}
+
+.context-menu-item {
+  padding: var(--space-md);
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--text-primary);
+}
+
+.context-menu-item:hover {
+  background: var(--bg-secondary);
+}
+
+.context-menu-item.add-ability {
+  color: var(--success-color);
+}
+
+.context-menu-item.remove-ability {
+  color: var(--error-color);
+} 

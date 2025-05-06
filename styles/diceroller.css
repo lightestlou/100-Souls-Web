@@ -1,0 +1,65 @@
+/* Dice Roller */
+.dice-roller {
+    display: flex;
+  }
+  
+  .dice-roller-button {
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: var(--space-md) var(--space-xl);
+    background: var(--primary-color);
+    color: var(--bg-secondary);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition);
+    margin-right: var(--space-lg);
+  }
+  
+  .dice-roller-button:hover {
+    background: var(--primary-dark);
+  }
+  
+  .dice-rolls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .dice-roll {
+    background: var(--primary-color);
+    color: var(--bg-secondary);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    min-width: 2em;
+    text-align: center;
+  }
+  
+  .dice-roll-separator {
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+  
+  .dice-result {
+    background: var(--primary-color);
+    color: var(--bg-secondary);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    min-width: 2em;
+    text-align: center;
+  }
+  
+  .dice-result.success {
+    background: var(--success-color);
+  }
+  
+  .dice-result.failure {
+    background: var(--error-color);
+  }
+  
+  .dice-result.neutral {
+    background: var(--warning-color);
+  } 
