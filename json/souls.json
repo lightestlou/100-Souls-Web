@@ -2,115 +2,100 @@
     {
       "id": "normal_attack",
       "name": "Normal Attack",
-      "cost": {
+      "stats": {
         "action": 1,
-        "reaction": 0,
-        "mana": 0,
-        "tempo": "Balanced"
+        "tempo": "Balanced",
+        "power": 100
       },
       "tags": ["Strike"],
       "category": "Basic Actions",
-      "content1": "<p>Unleash a well-measured melee attack to inflict damage to a single target.</p>",
-      "content2": "<p><b><u>Formula:</u></b><br> (Attack Damage + Weapon Modifier) * 100</p><p><b><u>Damage:</u></b><br> {{(character.attackDamage + character.weaponModifier) * 100}}</p>",
-      "content3": "<p>Feel free to flavor this attack to something appropriate to your character; whether that's a kick, a swing of your sword, or something else.</p>"
+      "content1": "<p>Unleash a well-measured melee attack to inflict damage to a single target. <hr> Damage: {{(character.attackDamage + character.weaponModifier) * 1}}</p>",
+      "content2": "<p>Use the Damage Calculator on the Combat tab to adjust your values. <hr> Damage = (Power/100) * (AttackDamage+WeaponModifier)</p>",
+      "content3": "<p>This is your basic melee attack. It's intentionally open-ended, meant to represent a wide variety of strikes. <hr> Flavor it as a punch, kick, elbow, bite, weapon swing, or anything else that fits what your character would do in the moment</p>"
     },
     {
       "id": "heavy_attack",
       "name": "Heavy Attack",
-      "cost": {
+      "stats": {
         "action": 2,
-        "reaction": 0,
-        "mana": 0,
-        "tempo": "Slow"
+        "tempo": "Slow",
+        "power": 250
       },
       "tags": ["Strike"],
       "category": "Basic Actions",
-      "content1": "<p>Unleash a powerful melee attack to deal significant damage to a single target.</p>",
-      "content2": "<p><b><u>Formula:</u></b><br> (Attack Damage + Weapon Modifier) * 250</p><p><b><u>Damage:</u></b><br> {{(character.attackDamage + character.weaponModifier) * 250}}</p>",
-      "content3": "<p>Feel free to flavor this attack to something appropriate to your character; whether that's a kick, a swing of your sword, or something else.</p>"
+      "content1": "<p>Unleash a powerful melee attack to deal significant damage to a single target. <hr> Damage: {{(character.attackDamage + character.weaponModifier) * 2.5}}</p>",
+      "content2": "<p>Use the Damage Calculator on the Combat tab to adjust your values. <hr> Damage = (Power/100) * (AttackDamage+WeaponModifier)</p>",
+      "content3": "<p>This is the heavy variant of the Normal Attack. Slower and more forceful, it represents a powerful and deliberate melee strike. <hr> Flavor it just as you would a Normal Attack, but keep its thematic weight in mind. Use it when there’s no exact move for what you want to do, but you know it should hit hard.</p>"
     },
     {
       "id": "move",
       "name": "Move",
-      "cost": {
+      "stats": {
         "action": 1,
-        "reaction": 0,
-        "mana": 0,
         "tempo": "Balanced"
       },
       "tags": ["Movement"],
       "category": "Basic Actions",
-      "content1": "<p>Move across the battlefield.</p>",
-      "content2": "<p><b><u>Formula:</u></b><br> Speed * 5</p><p><b><u>Distance:</u></b><br> {{character.maxSpeed * 5}}</p>",
-      "content3": "<p>Movement Tip Here...</p>"
+      "content1": "<p>Move across the battlefield. <hr> Distance: {{character.maxSpeed * 5}}</p>",
+      "content2": "<p>Distance = 5*Speed <hr> Requirement: You are not prone.</p>",
+      "content3": "<p>This is standard movement action. Use it to close distance, reposition, or retreat.</p>"
     },
     {
       "id": "drop_prone",
       "name": "Drop Prone",
-      "cost": {
+      "stats": {
         "action": 1,
-        "reaction": 0,
-        "mana": 0,
         "tempo": "Quick"
       },
       "tags": ["Movement"],
       "category": "Basic Actions",
-      "content1": "<p>Drop to the ground, becoming prone.</p>",
-      "content2": "<p>You fall prone.</p>",
-      "content3": "<p>Use the crawl action to move while prone.</p>"
+      "content1": "<p>Quickly drop to the ground, making yourself a smaller target.</p>",
+      "content2": "<p>Add Prone to your conditons tracker.</p>",
+      "content3": "<p>Being prone reduces your profile and grants you certain defensive advantages. This move is fast and ideal for diving behind cover or bracing against incoming attacks. <hr> Be mindful of the your disadvanges should your opponent catch you in this position.</p>"
     },
     { 
       "id": "crawl",
       "name": "Crawl",
-      "cost": {
+      "stats": {
         "action": 1,
-        "reaction": 0,
-        "mana": 0,
         "tempo": "Slow"
       },
       "tags": ["Movement"],
       "category": "Basic Actions",
-      "content1": "<p>Move while prone.</p>",
-      "content2": "<p>Formula: Speed/2 * 5</p><p>Distance: {{character.maxSpeed/2 * 5}}</p>",
-      "content3": "<p>Movement Tip Here...</p>" 
+      "content1": "<p>Move slowly while remaining prone. <hr> Distance: {{character.maxSpeed/2 * 5}}</p>",
+      "content2": "<p>Distance = 5*(Speed/2) <hr> Requirement: You are prone.</p>",
+      "content3": "<p>While prone, you can crawl to shift position at reduced speed. Useful for staying low while moving through danger zones or remaining hidden.</p>" 
     },
     {
       "id": "stand_up",
       "name": "Stand Up",
-      "cost": {
+      "stats": {
         "action": 1,
-        "reaction": 0,
-        "mana": 0,
         "tempo": "Balanced"
       },
       "tags": ["Movement"],
       "category": "Basic Actions",
-      "content1": "<p>Stand up from a prone position.</p>",
-      "content2": "<p>You stand up.</p>", 
-      "content3": "<p>Tips Here...</p>"
+      "content1": "<p>Rise from a prone position to stand upright.</p>",
+      "content2": "<p>Remove the Prone condition from your conditions tracker.</p>", 
+      "content3": "<p>Stand up from a prone position to regain full mobility. Be mindful—standing makes you a bigger target but opens up more options.</p>"
     },
     { 
       "id": "interact",
       "name": "Interact",
-      "cost": {
-        "action": 1,
-        "reaction": 0,
-        "mana": 0,
-        "tempo": "N/A"
+      "stats": {
+        "action": 1
       },
       "tags": ["RP"],
       "category": "Basic Actions",
-      "content1": "<p>Manipulate an object or the terrain.</p>",
+      "content1": "<p>Interact with an object or element in your environment.</p>",
       "content2": "<p>You manipulate the object or terrain.</p>",
-      "content3": "<p>This covers anything from pushing a box to a button, to pulling a lever or a door.</p>"
+      "content3": "<p>Use this to handle objects or elements of the environment—pulling levers, opening doors, flipping switches, grabbing gear, or anything else tactile and physical.</p>"
     },
     {
       "id": "block",
       "name": "Block",
-      "cost": {
-        "action": 0,
+      "stats": {
         "reaction": 1,
-        "mana": 0,
         "tempo": "Slow"
       },
       "tags": ["Defense"],
@@ -122,10 +107,8 @@
     {
       "id": "dodge",
       "name": "Dodge",
-      "cost": {
-        "action": 0,
+      "stats": {
         "reaction": 1,
-        "mana": 0,
         "tempo": "Quick"
       },
       "tags": ["Defense"],
@@ -137,10 +120,8 @@
     {
       "id": "grab_break",
       "name": "Grab Break",
-      "cost": {
-        "action": 0,
+      "stats": {
         "reaction": 1,
-        "mana": 0,
         "tempo": "Quick"
       },
       "tags": ["Defense"],
@@ -152,12 +133,7 @@
     {
       "id": "surprise_attack",
       "name": "Surprise Attack",
-      "cost": {
-        "action": 0,
-        "reaction": 0,
-        "mana": 0,
-        "tempo": "N/A"
-      },
+      "stats": {},
       "tags": ["Modifier"],
       "category": "Basic Modifiers",
       "content1": "<p>You deal more damage when you catch an opponent off guard.</p>",
@@ -167,12 +143,7 @@
     {
       "id": "non_lethal",
       "name": "Non-Lethal",
-      "cost": {
-        "action": 0,
-        "reaction": 0,
-        "mana": 0,
-        "tempo": "N/A"
-      },
+      "stats": {},
       "tags": ["Modifier"],
       "category": "Basic Modifiers",
       "content1": "<p>Modify an ability to reduce the chance of severly injuring an opponent.</p>",
@@ -182,10 +153,8 @@
     { 
       "id": "grab_and_hold",
       "name": "Grab and Hold",
-      "cost": {
+      "stats": {
         "action": 1,
-        "reaction": 0,
-        "mana": 0,
         "tempo": "Balanced"
       },  
       "tags": ["Grapple"],
@@ -197,10 +166,8 @@
     {
       "id": "struggle",
       "name": "Struggle",
-      "cost": {
+      "stats": {
         "action": 3,
-        "reaction": 0,
-        "mana": 0,
         "tempo": "Slow"
       },
       "tags": ["Grapple"],
@@ -212,10 +179,8 @@
     {
       "id": "throw",
       "name": "Throw",
-      "cost": {
+      "stats": {
         "action": 1,
-        "reaction": 0,
-        "mana": 0,
         "tempo": "Slow"
       },    
       "tags": ["Grapple"],
@@ -227,10 +192,8 @@
     {
       "id": "tackle",
       "name": "Tackle",
-      "cost": {
+      "stats": {
         "action": 3,
-        "reaction": 0,
-        "mana": 0,
         "tempo": "Slow"
       },    
       "tags": ["Grapple", "Movement"],
@@ -242,10 +205,8 @@
     {
       "id": "human_shield",
       "name": "Human Shield",
-      "cost": {
-        "action": 0,
+      "stats": {
         "reaction": 1,
-        "mana": 0,
         "tempo": "Slow"
       },    
       "tags": ["Grapple", "Defense"],
@@ -257,10 +218,8 @@
     {
       "id": "shove",
       "name": "Shove",
-      "cost": {
+      "stats": {
         "action": 1,
-        "reaction": 0,
-        "mana": 0,
         "tempo": "Slow"
       },    
       "tags": ["Grapple"],

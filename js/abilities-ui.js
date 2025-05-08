@@ -115,14 +115,27 @@ function createAbilityCard(ability) {
   // Process the ability content with character variables
   const processedAbility = replaceAbilityVariables(ability, currentCharacter);
   
+  // Define stat icons and create stat elements for existing fields
+  const statIcons = {
+    action: '⚡',
+    reaction: '🔁',
+    mana: '💧',
+    tempo: '⏱️',
+    power: '💪'
+  };
+  
+  const statElements = Object.entries(processedAbility.stats || {})
+    .map(([type, value]) => {
+      const icon = statIcons[type] || '❓'; // Use placeholder for unknown stat types
+      return `<span class="ability-card-stat">${icon} ${value}</span>`;
+    })
+    .join('');
+  
   card.innerHTML = `
     <div class="ability-card-header">
       <div class="ability-card-name">${processedAbility.name}</div>
-      <div class="ability-card-cost-container">
-        <span class="ability-card-cost">⚡ ${processedAbility.cost.action}</span>
-        <span class="ability-card-cost">🔁 ${processedAbility.cost.reaction}</span>
-        <span class="ability-card-cost">💧 ${processedAbility.cost.mana}</span>
-        <span class="ability-card-cost">⏱️ ${processedAbility.cost.tempo}</span>
+      <div class="ability-card-stat-container">
+        ${statElements}
       </div>
       <div class="ability-card-tag-container">
         ${(processedAbility.tags || []).map(tag => `<span class="ability-card-tag">${tag}</span>`).join('')}

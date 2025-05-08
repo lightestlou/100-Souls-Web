@@ -112,22 +112,24 @@
   gap: var(--space-sm);
 }
 
-.ability-card-cost-container {
+.ability-card-stat-container {
   display: flex;
   gap: var(--space-md);
   font-size: 0.9rem;
   color: var(--text-secondary);
   margin-top: var(--space-sm);
   margin-bottom: var(--space-md);
+  flex-wrap: wrap;
 }
 
-.ability-card-cost {
+.ability-card-stat {
   display: flex;
   align-items: center;
   gap: var(--space-xs);
   padding: var(--space-xs) var(--space-sm);
   background: var(--bg-tertiary);
   border-radius: var(--radius-sm);
+  white-space: nowrap;
 }
 
 .ability-card-tag-container {
@@ -143,6 +145,7 @@
   background: var(--bg-tertiary);
   border-radius: var(--radius-sm);
   opacity: 0.8;
+  white-space: nowrap;
 }
 
 .ability-card-content {
