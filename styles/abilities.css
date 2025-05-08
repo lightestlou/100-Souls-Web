@@ -85,11 +85,15 @@
   border: 2px solid var(--border-color);
   overflow: hidden;
   transition: var(--transition);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
 }
 
 .ability-card:hover {
   border-color: var(--primary-color);
   box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
 }
 
 .ability-card-header {
@@ -103,27 +107,54 @@
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
-.ability-card-costs {
+.ability-card-cost-container {
   display: flex;
   gap: var(--space-md);
   font-size: 0.9rem;
   color: var(--text-secondary);
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
 .ability-card-cost {
   display: flex;
   align-items: center;
   gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+}
+
+.ability-card-tag-container {
+  display: flex;
+  gap: var(--space-sm);
+  color: var(--text-secondary);
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+.ability-card-tag {
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  opacity: 0.8;
 }
 
 .ability-card-content {
   padding: var(--space-md);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .ability-card-content-block {
   display: none;
+  flex-grow: 1;
 }
 
 .ability-card-content-block.active {
@@ -136,12 +167,14 @@
   padding: var(--space-md);
   background: var(--bg-secondary);
   border-top: 2px solid var(--border-color);
+  margin-top: auto;
 }
 
 .ability-card-footer button {
   flex: 1;
   padding: var(--space-sm);
   font-size: 0.9rem;
+  transition: var(--transition);
 }
 
 .ability-card-footer button.active {
@@ -173,7 +206,6 @@
   border-color: var(--error-color);
 }
 
-/* Context Menu */
 .ability-context-menu {
   position: fixed;
   background: var(--bg-primary);

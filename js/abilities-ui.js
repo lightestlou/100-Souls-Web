@@ -118,10 +118,14 @@ function createAbilityCard(ability) {
   card.innerHTML = `
     <div class="ability-card-header">
       <div class="ability-card-name">${processedAbility.name}</div>
-      <div class="ability-card-costs">
+      <div class="ability-card-cost-container">
         <span class="ability-card-cost">⚡ ${processedAbility.cost.action}</span>
-        <span class="ability-card-cost">🔄 ${processedAbility.cost.reaction}</span>
-        <span class="ability-card-cost">✨ ${processedAbility.cost.mana}</span>
+        <span class="ability-card-cost">🔁 ${processedAbility.cost.reaction}</span>
+        <span class="ability-card-cost">💧 ${processedAbility.cost.mana}</span>
+        <span class="ability-card-cost">⏱️ ${processedAbility.cost.tempo}</span>
+      </div>
+      <div class="ability-card-tag-container">
+        ${(processedAbility.tags || []).map(tag => `<span class="ability-card-tag">${tag}</span>`).join('')}
       </div>
     </div>
     <div class="ability-card-content">

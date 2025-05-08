@@ -5,8 +5,10 @@
       "cost": {
         "action": 1,
         "reaction": 0,
-        "mana": 0
+        "mana": 0,
+        "tempo": "Balanced"
       },
+      "tags": ["Strike"],
       "category": "Basic Actions",
       "content1": "<p>Unleash a well-measured melee attack to inflict damage to a single target.</p>",
       "content2": "<p><b><u>Formula:</u></b><br> (Attack Damage + Weapon Modifier) * 100</p><p><b><u>Damage:</u></b><br> {{(character.attackDamage + character.weaponModifier) * 100}}</p>",
@@ -18,8 +20,10 @@
       "cost": {
         "action": 2,
         "reaction": 0,
-        "mana": 0
+        "mana": 0,
+        "tempo": "Slow"
       },
+      "tags": ["Strike"],
       "category": "Basic Actions",
       "content1": "<p>Unleash a powerful melee attack to deal significant damage to a single target.</p>",
       "content2": "<p><b><u>Formula:</u></b><br> (Attack Damage + Weapon Modifier) * 250</p><p><b><u>Damage:</u></b><br> {{(character.attackDamage + character.weaponModifier) * 250}}</p>",
@@ -31,8 +35,10 @@
       "cost": {
         "action": 1,
         "reaction": 0,
-        "mana": 0
+        "mana": 0,
+        "tempo": "Balanced"
       },
+      "tags": ["Movement"],
       "category": "Basic Actions",
       "content1": "<p>Move across the battlefield.</p>",
       "content2": "<p><b><u>Formula:</u></b><br> Speed * 5</p><p><b><u>Distance:</u></b><br> {{character.maxSpeed * 5}}</p>",
@@ -44,8 +50,10 @@
       "cost": {
         "action": 1,
         "reaction": 0,
-        "mana": 0
+        "mana": 0,
+        "tempo": "Quick"
       },
+      "tags": ["Movement"],
       "category": "Basic Actions",
       "content1": "<p>Drop to the ground, becoming prone.</p>",
       "content2": "<p>You fall prone.</p>",
@@ -57,8 +65,10 @@
       "cost": {
         "action": 1,
         "reaction": 0,
-        "mana": 0
+        "mana": 0,
+        "tempo": "Slow"
       },
+      "tags": ["Movement"],
       "category": "Basic Actions",
       "content1": "<p>Move while prone.</p>",
       "content2": "<p>Formula: Speed/2 * 5</p><p>Distance: {{character.maxSpeed/2 * 5}}</p>",
@@ -70,8 +80,10 @@
       "cost": {
         "action": 1,
         "reaction": 0,
-        "mana": 0
+        "mana": 0,
+        "tempo": "Balanced"
       },
+      "tags": ["Movement"],
       "category": "Basic Actions",
       "content1": "<p>Stand up from a prone position.</p>",
       "content2": "<p>You stand up.</p>", 
@@ -83,8 +95,10 @@
       "cost": {
         "action": 1,
         "reaction": 0,
-        "mana": 0
+        "mana": 0,
+        "tempo": "N/A"
       },
+      "tags": ["RP"],
       "category": "Basic Actions",
       "content1": "<p>Manipulate an object or the terrain.</p>",
       "content2": "<p>You manipulate the object or terrain.</p>",
@@ -96,8 +110,10 @@
       "cost": {
         "action": 0,
         "reaction": 1,
-        "mana": 0
+        "mana": 0,
+        "tempo": "Slow"
       },
+      "tags": ["Defense"],
       "category": "Basic Reactions",
       "content1": "<p>Brace against incoming damage, diminishing the force of the assault.</p>",
       "content2": "<p><b><u>Trigger:</u></b><br>You are about to take damage from an attack and you are aware of it.</p><p><b><u>Effect:</u></b><br>Reduce the power of the attack used against you by 50</p>",
@@ -109,8 +125,10 @@
       "cost": {
         "action": 0,
         "reaction": 1,
-        "mana": 0
+        "mana": 0,
+        "tempo": "Quick"
       },
+      "tags": ["Defense"],
       "category": "Basic Reactions",
       "content1": "<p>Attempt to avoid an incoming attack with quick reflexes.</p>",
       "content2": "<p><b><u>Trigger:</u></b><br>You are about to take damage from an attack and you are aware of it.</p><p><b><u>Contest:</u></b><br>Coordination vs Accuracy</p><p><b><u>Success:</u></b><br>Negate the attack</p>",
@@ -122,8 +140,10 @@
       "cost": {
         "action": 0,
         "reaction": 1,
-        "mana": 0
+        "mana": 0,
+        "tempo": "Quick"
       },
+      "tags": ["Defense"],
       "category": "Basic Reactions",
       "content1": "<p>Attempt to prevent an opponent from grappling you.</p>",
       "content2": "<p><b><u>Trigger:</u></b><br>You are about to take damage from an attack and you are aware of it.</p><p><b><u>Prediction:</u></b><br>You anticipate a grab-style attack.</p><p><b><u>Success:</u></b><br>Target's attack fails and your reaction is refunded.</p>",
@@ -135,8 +155,10 @@
       "cost": {
         "action": 0,
         "reaction": 0,
-        "mana": 0
+        "mana": 0,
+        "tempo": "N/A"
       },
+      "tags": ["Modifier"],
       "category": "Basic Modifiers",
       "content1": "<p>You deal more damage when you catch an opponent off guard.</p>",
       "content2": "<p><b><u>Requirement:</u></b><br>The Target of the modified ability is unaware of the user’s presence.</p><p><b><u>Success:</u></b><br>Increase the Power of the modified ability by 100.</p><p><b><u>Failure:</u></b><br>The modified ability deals normal damage.</p>",
@@ -148,8 +170,10 @@
       "cost": {
         "action": 0,
         "reaction": 0,
-        "mana": 0
+        "mana": 0,
+        "tempo": "N/A"
       },
+      "tags": ["Modifier"],
       "category": "Basic Modifiers",
       "content1": "<p>Modify an ability to reduce the chance of severly injuring an opponent.</p>",
       "content2": "<p><b><u>Effect:</u></b><br>Decrease the Power of the modified ability by 50.</p><p><b><u>Effect:</u></b><br>Damage from the modified ability will never cause hard damage. </p>",
@@ -161,8 +185,10 @@
       "cost": {
         "action": 1,
         "reaction": 0,
-        "mana": 0
+        "mana": 0,
+        "tempo": "Balanced"
       },  
+      "tags": ["Grapple"],
       "category": "Grappling Fundamentals",
       "content1": "<p>Attempt to restrain an opponent.</p>",
       "content2": "<p><b><u>Contest:</u></b><br>Physique vs Physique</p><p><b><u>Success:</u></b><br>You actively restrain your target.</p>",
@@ -174,8 +200,10 @@
       "cost": {
         "action": 3,
         "reaction": 0,
-        "mana": 0
+        "mana": 0,
+        "tempo": "Slow"
       },
+      "tags": ["Grapple"],
       "category": "Grappling Fundamentals",
       "content1": "<p>Attempt to break free from a hold.</p>",
       "content2": "<p><b><u>Contest:</u></b><br>Dynamic vs Dynamic</p><p><b><u>Success:</u></b><br>You are no longer restrained.</p>",
@@ -187,8 +215,10 @@
       "cost": {
         "action": 1,
         "reaction": 0,
-        "mana": 0
+        "mana": 0,
+        "tempo": "Slow"
       },    
+      "tags": ["Grapple"],
       "category": "Grappling Fundamentals",
       "content1": "<p>Attempt to throw a target you're restraining.</p>",
       "content2": "<p><b><u>Requirement:</u></b><br>You are restraining the target.</p><p><b><u>Contest:</u></b><br>Physique vs Physique</p><p><b><u>Success:</u></b><br>You throw your target a short distance and knock them prone.</p><p><b><u>Failure:</u></b><br>You throw your target a short distance but fail to knock them prone.</p><p><b><u>Formula:</u></b><br>Distance = Physique + Your Size - Target's Size</p>",
@@ -200,8 +230,10 @@
       "cost": {
         "action": 3,
         "reaction": 0,
-        "mana": 0
+        "mana": 0,
+        "tempo": "Slow"
       },    
+      "tags": ["Grapple", "Movement"],
       "category": "Grappling Fundamentals",
       "content1": "<p>Run and attempt to tackle an opponent.</p>",
       "content2": "<p><b><u>Requirement:</u></b><br>Your target's position is no closer than 3 units to you and no further than double your Speed away from you.</p><p><b><u>Contest:</u></b><br>Physique vs Physique</p><p><b><u>Success:</u></b><br>You move to your target and tackle them, causing both of you to fall prone.</p><p><b><u>Failure:</u></b><br>You move to your target but fail to tackle them.</p>",
@@ -213,8 +245,10 @@
       "cost": {
         "action": 0,
         "reaction": 1,
-        "mana": 0
+        "mana": 0,
+        "tempo": "Slow"
       },    
+      "tags": ["Grapple", "Defense"],
       "category": "Grappling Fundamentals",
       "content1": "<p>Attempt to use a restrained target's body as a shield yourself from an attack.</p>",
       "content2": "<p><b><u>Trigger:</u></b><br>You are the target of an attacking while restraining an actor.</p><p><b><u>Contest:</u></b><br>Physique vs Physique</p><p><b><u>Success:</u></b><br>The restrained actor takes 100% of the damage from the attack.</p><p><b><u>Failure:</u></b><br>The restrained actor takes 50% of the damage from the attack.</p>",
@@ -226,13 +260,14 @@
       "cost": {
         "action": 1,
         "reaction": 0,
-        "mana": 0
+        "mana": 0,
+        "tempo": "Slow"
       },    
+      "tags": ["Grapple"],
       "category": "Grappling Fundamentals",
       "content1": "<p>Attempt to push an opponent away from you.</p>",
       "content2": "<p><b><u>Contest:</u></b><br>Physique vs Physique</p><p><b><u>Success:</u></b><br>You push your target a few spaces away from you.</p><p><b><u>Formula:</u></b><br>Distance = Physique + Your Size - Target's Size</p>",
       "content3": "<p>Shoving your target into a nearby object or hazard can trigger additional effects. Consult with your DM to determine what effects, if any, would be triggered.</p>"
     }
-
   ]
   
